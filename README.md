@@ -2,6 +2,22 @@
 
 [[Paper]](https://arxiv.org/abs/2404.00530) [[🤗 Data]](https://huggingface.co/datasets/jointpreferences/sft_and_pref_data/tree/main/data) [[🤗 Checkpoints]](https://github.com/Hritikbansal/dove?tab=readme-ov-file#checkpoints)) 
 
+![Preference Acquisition](https://img.shields.io/badge/Task-Preference--Acqusition-red) 
+![Mistral](https://img.shields.io/badge/Model-Mistral-green) 
+![DPO](https://img.shields.io/badge/Algorithm-DPO-green) 
+![SFT](https://img.shields.io/badge/Algorithm-SFT-green)
+![Dove](https://img.shields.io/badge/Algorithm-DOVE-green)
+![Openai](https://img.shields.io/badge/Dataset-TL;DR-blue) 
+![Anthropic](https://img.shields.io/badge/Dataset-Anthropic--HH-blue) 
+ 
+
+Code for the Paper "[Comparing Bad Apples to Good Oranges: Aligning Large Language Models via Joint Preference Optimization](https://arxiv.org/abs/2404.00530)".
+
+:bell: If you have any questions or suggestions, please don't hesitate to let us know. You can comment on the [Twitter](https://twitter.com/hbXNov), or post an issue on this repository.
+
+[[Paper](https://arxiv.org/abs/2404.00530)] [[Huggingface Dataset](https://huggingface.co/datasets/jointpreferences/sft_and_pref_data/tree/main/data)] [[Checkpoints](https://huggingface.co/jointpreferences)] [[Twitter](https://twitter.com/hbXNov)]
+
+
 <h1 align="center"><img src="main_fig.png" width="100%"></h1>
 
 ## Installation
