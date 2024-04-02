@@ -17,7 +17,7 @@ os.environ['TRANSFORMERS_CACHE'] = cache_dir
 os.environ['HUGGINGFACE_HUB_CACHE'] = cache_dir
 os.environ['HF_DATASETS_CACHE'] = cache_dir
 os.environ['HF_HOME'] = cache_dir
-os.environ["HF_TOKEN"] = "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"
+os.environ["HF_TOKEN"] = "your_token_here"
 # os.environ["WANDB_DISABLED"] = "true"
 
 # Define and parse arguments.

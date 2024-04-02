@@ -281,6 +281,10 @@ def save_model(local_rank, model, tokenizer, outpath, current_epoch, current_ste
 if __name__ == "__main__":
     local_rank = int(os.environ["LOCAL_RANK"])
     world_size = int(os.environ["WORLD_SIZE"])
+
+    train_path = str(os.environ["TRAIN_PATH"])    
+    val_path = str(os.environ["VALIDATION_PATH"])    
+
     torch.backends.cuda.matmul.allow_tf32 = True
     torch.backends.cudnn.allow_tf32 = True
     torch.cuda.set_device(local_rank)
@@ -338,8 +342,14 @@ if __name__ == "__main__":
     model = FSDP(model, **fsdp_config)
     optimizer = get_optimizer(model, lr, weight_decay)
 
-    train_ds = ["../data/sft_data/train_sft.jsonl"]
-    val_ds = ["../data/sft_data/validation_sft.jsonl"]
+    ## Training dataset paths
+    # train_ds = ["../data/sft_data/train_sft.jsonl"]
+    # val_ds = ["../data/sft_data/validation_sft.jsonl"]
+
+    train_ds = [train_path]
+    val_ds = [val_path]
+
+
     train_dataset = SupervisedDataset(train_on_inputs, tokenizer, train_ds)
     val_dataset = SupervisedDataset(train_on_inputs, tokenizer, val_ds)
     collator = DataCollatorForSupervisedDataset(tokenizer)

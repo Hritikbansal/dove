@@ -1,34 +1,24 @@
-# fine-tune-mistral
+# Supervised Finetuning Mistral-7B
 
-Code used to fine-tune this model. Add your data in the data folder as `train.jsonl` and `validation.jsonl`.
+This repository contains the code necessary for fine-tuning the Mistral-7B model. To prepare for fine-tuning, export the environment variable TRAIN_PATH and VALIDATION_PATH with `train_sft.jsonl` and `val_sft.jsonl`. Alternatively, can be passed in the command line during training as shown in following sections.
 
-**Note** this repo is intended for full fine-tuning of mistral not qlora or other methods.
+**Important Notice**: Supervised Fine Tuning is exclusively designed for the full precision fine-tuning of the Mistral model. It is not suitable for QLORA or other fine-tuning methodologies.
 
 # How to run
-
-Install dependencies:
-```
-python -m venv env \
-  && source env/bin/activate \
-  && pip install -r requirements.txt
-```
-
-[Get a Hugging Face token](https://huggingface.co/settings/tokens) and set the variable:
-
-```
-export HF_TOKEN="[insert token here]"
-```
+- Acquire a Hugging Face authentication token by visiting [here](https://huggingface.co/settings/tokens).
+- Export the environment variable with the obtained token. Alternatively, can be passed in the command line as shown in following section - 
 
 Run training code:
+
 ```
-CUDA_VISIBLE_DEVICES=6,7 torchrun --nnodes=1 --nproc-per-node=2 train.py
+TRAIN_PATH=../data/tldr/train_sft.jsonl VALIDATION_PATH=../data/tldr/val_sft.jsonl HF_HOME=/data/gbhatt2/ HF_TOKEN=[your auth token here] CUDA_VISIBLE_DEVICES=0,1 torchrun --nnodes=1 --nproc-per-node=2 train.py
 ```
 
-# Tips
+# Recommendations for Effective Fine-Tuning
 
-- If running with a small batch size, lower the learning rate
-- I did not have to adjust grad clip or weight_decay but YMMV
-- Use enough data, I recommend > 1k samples
-- I ran this for 3 epochs on 40k samples, will need to experiment more on epochs because the model was still improving.
-- The better way to tell if your model is improving or just overfitting or even getting worse, you should add evaluation on your task. This is data that is not part of training. For example, on code completion you can evaluate your model on the mbpp validation set or a custom set you have.
-- Use FSDP option: `backward_prefetch=BackwardPrefetch.BACKWARD_PRE` if you have the GPU memory, or `backward_prefetch=BackwardPrefetch.BACKWARD_POST`. This can cause OOM so it was set to None
+- When operating with a smaller batch size, it is advisable to reduce the learning rate accordinµgly.
+- Adjustments to gradient clipping and weight decay were not necessary in our experience, but this may vary depending on your specific context.
+- For optimal results, a dataset containing more than 1,000 samples is recommended.
+- Our tests involved running the fine-tuning process for 3 epochs on a dataset of 40,000 samples. Further experimentation with the number of epochs is encouraged, as improvements were observed beyond this point.
+- To accurately assess whether your model is progressing, becoming overfitted, or declining in performance, incorporate evaluation mechanisms on downstream validation data.
+- Regarding the Fully Sharded Data Parallel (FSDP) option, use `backward_prefetch=BackwardPrefetch.BACKWARD_PRE` if sufficient GPU memory is available. Alternatively, `backward_prefetch=BackwardPrefetch.BACKWARD_POST` may be utilized. Note that to prevent out-of-memory (OOM) errors, this option was set to None in our configurations.
