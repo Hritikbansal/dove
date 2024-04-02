@@ -10,7 +10,7 @@
 [[Paper](https://arxiv.org/abs/2404.00530)] [[🤗 Huggingface Dataset](https://huggingface.co/datasets/jointpreferences/sft_and_pref_data/tree/main/data)] [[🤗 Checkpoints](https://huggingface.co/jointpreferences)] [[Twitter](https://twitter.com/hbXNov)] 
 
 
-<h1 align="center"><img src="data/dove.webp" width="100%"></h1>
+<h1 align="center"><img src="data/dove.webp" width="30%"></h1>
 <p align="center"><i> DOVE 🕊️, a new objective for aligning LLMs that optimizes preferences over joint instruction-response pairs.</i>
 
  Code for the Paper "[Comparing Bad Apples to Good Oranges: Aligning Large Language Models via Joint Preference Optimization](https://arxiv.org/abs/2404.00530)".
@@ -31,7 +31,7 @@
 
 ## About DOVE
 Traditional conditional feedback approaches are limited in capturing the complex, multifaceted nature of human preferences! Hence, we collect human and AI preferences jointly over instruction-response pairs i.e., (I1,R1) vs (I2, R2). Joint preferences subsume conditional preferences when I1=I2. To learn from joint preferences, we introduce a new preference optimization objective. Intuitively, it upweights the joint probability of the preferred instruction-response pair over the rejected instruction-response pair. If instructions are identical, then DOVE boils down to DPO! 
-<h1 align="center"><img src="main_fig.png" width="30%"></h1>
+<h1 align="center"><img src="main_fig.png" width="100%"></h1>
 
 ## Installation
 
