@@ -18,7 +18,7 @@
 :bell: If you have any questions or suggestions, please don't hesitate to let us know. You can comment on the [Twitter](https://twitter.com/hbXNov), or post an issue on this repository.
 
 ## Table of contents
--[About DOVE](https://github.com/Hritikbansal/dove/blob/main/README.md#-about-dove-)
+- [About DOVE](https://github.com/Hritikbansal/dove/blob/main/README.md#-about-dove-)
 - [Installation](https://github.com/Hritikbansal/dove/blob/main/README.md#-installation-)
 - [Data](https://github.com/Hritikbansal/dove/blob/main/README.md#-data-)
 - [Checkpoints](https://github.com/Hritikbansal/dove/blob/main/README.md#-checkpoints-)
