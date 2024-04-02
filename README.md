@@ -1,7 +1,4 @@
 # DOVE
-
-[[Paper]](https://arxiv.org/abs/2404.00530) [[🤗 Data]](https://huggingface.co/datasets/jointpreferences/sft_and_pref_data/tree/main/data) [[🤗 Checkpoints]](https://github.com/Hritikbansal/dove?tab=readme-ov-file#checkpoints)) 
-
 ![Preference Acquisition](https://img.shields.io/badge/Task-Preference--Acqusition-red) 
 ![Mistral](https://img.shields.io/badge/Model-Mistral-green) 
 ![DPO](https://img.shields.io/badge/Algorithm-DPO-green) 
@@ -10,15 +7,31 @@
 ![Openai](https://img.shields.io/badge/Dataset-TL;DR-blue) 
 ![Anthropic](https://img.shields.io/badge/Dataset-Anthropic--HH-blue) 
  
+[[Paper](https://arxiv.org/abs/2404.00530)] [[🤗 Huggingface Dataset](https://huggingface.co/datasets/jointpreferences/sft_and_pref_data/tree/main/data)] [[🤗 Checkpoints](https://huggingface.co/jointpreferences)] [[Twitter](https://twitter.com/hbXNov)] 
 
-Code for the Paper "[Comparing Bad Apples to Good Oranges: Aligning Large Language Models via Joint Preference Optimization](https://arxiv.org/abs/2404.00530)".
+
+<h1 align="center"><img src="data/dove.webp" width="100%"></h1>
+<p align="center"><i> DOVE 🕊️, a new objective for aligning LLMs that optimizes preferences over joint instruction-response pairs.</i>
+
+ Code for the Paper "[Comparing Bad Apples to Good Oranges: Aligning Large Language Models via Joint Preference Optimization](https://arxiv.org/abs/2404.00530)".
 
 :bell: If you have any questions or suggestions, please don't hesitate to let us know. You can comment on the [Twitter](https://twitter.com/hbXNov), or post an issue on this repository.
 
-[[Paper](https://arxiv.org/abs/2404.00530)] [[Huggingface Dataset](https://huggingface.co/datasets/jointpreferences/sft_and_pref_data/tree/main/data)] [[Checkpoints](https://huggingface.co/jointpreferences)] [[Twitter](https://twitter.com/hbXNov)]
+## Table of contents
+-[About DOVE](https://github.com/Hritikbansal/dove/blob/main/README.md#-about-dove-)
+- [Installation](https://github.com/Hritikbansal/dove/blob/main/README.md#-installation-)
+- [Data](https://github.com/Hritikbansal/dove/blob/main/README.md#-data-)
+- [Checkpoints](https://github.com/Hritikbansal/dove/blob/main/README.md#-checkpoints-)
+- [Feedback Acquisition](https://github.com/Hritikbansal/dove/blob/main/README.md#-feedback-acquisition-)
+  + [Conditional Rankings - Compare Two Responses for Identical Instructions](https://github.com/Hritikbansal/dove/blob/main/README.md#-conditional-rankings--compare-two-responses-for-identical-instructions-)
+  + [Joint Rankings - Compare Two Instruction-Response Pairs](https://github.com/Hritikbansal/dove/blob/main/README.md#-joint-ranking--compare-two-instruction--response-pairs-)
+- [Supervised Finetuning](https://github.com/Hritikbansal/dove/blob/main/README.md#-supervised-finetuning-)
+- [DOVE](https://github.com/Hritikbansal/dove/blob/main/README.md#-dove-)
+- [Evaluation](https://github.com/Hritikbansal/dove/blob/main/README.md#-evaluation-)
 
-
-<h1 align="center"><img src="main_fig.png" width="100%"></h1>
+## About DOVE
+Traditional conditional feedback approaches are limited in capturing the complex, multifaceted nature of human preferences! Hence, we collect human and AI preferences jointly over instruction-response pairs i.e., (I1,R1) vs (I2, R2). Joint preferences subsume conditional preferences when I1=I2. To learn from joint preferences, we introduce a new preference optimization objective. Intuitively, it upweights the joint probability of the preferred instruction-response pair over the rejected instruction-response pair. If instructions are identical, then DOVE boils down to DPO! 
+<h1 align="center"><img src="main_fig.png" width="30%"></h1>
 
 ## Installation
 
@@ -41,7 +54,7 @@ conda activate dove
 
 🤗 Data is uploaded on Huggingface: [Link](https://huggingface.co/datasets/jointpreferences/sft_and_pref_data/tree/main/data)
 
-## Checkpoints 
+## Checkpoints
 
 We upload the trained SFT and DOVE checkpoints to huggingface 🤗.
 
