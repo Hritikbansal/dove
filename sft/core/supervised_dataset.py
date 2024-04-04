@@ -18,7 +18,7 @@ DEFAULT_UNK_TOKEN = "<|unk|>"
 
 
 def fmt_prompt(prompt):
-    return f"### Instructions: You are given a social media post, summarize it accordingly. \nPost: {prompt}\n\n### Response:"
+    return f"### Instructions:{prompt}\n\n### Response:"
 
 
 def _tokenize_fn(
