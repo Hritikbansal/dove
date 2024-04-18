@@ -12,7 +12,7 @@ from custom_dove_trainer import CustomDoveTrainer
 # from trl import DPOTrainer
 from utils import *
 
-cache_dir = "/data/gbhatt2"
+cache_dir = "your cache directory here"
 os.environ['TRANSFORMERS_CACHE'] = cache_dir
 os.environ['HUGGINGFACE_HUB_CACHE'] = cache_dir
 os.environ['HF_DATASETS_CACHE'] = cache_dir
@@ -187,7 +187,7 @@ if __name__ == "__main__":
     run_name = f"name_{script_args.output_dir}_{script_args.model_name_or_path}_bsz={script_args.per_device_train_batch_size}_joint={script_args.joint_distribution}"
     if script_args.report_to == 'wandb':   
         import wandb 
-        wandb.init(project="preference_augment", entity="mint-adobe", config=vars(script_args), name=run_name)
+        wandb.init(project="project", config=vars(script_args), name=run_name)
 
     # 5. initialize the Dove trainer
     dove_trainer = CustomDoveTrainer(
