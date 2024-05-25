@@ -127,7 +127,7 @@ if __name__ == "__main__":
     
     # 3. Load evaluation dataset
     eval_dataset = load_dataset("json", data_files = script_args.eval_dataset_name, split="train")
-    eval_dataset = train_dataset.map(
+    eval_dataset = eval_dataset.map(
             return_prompt_and_responses_augmented,
             batched=True,
             num_proc=24,
