@@ -396,6 +396,8 @@ class CustomDoveTrainer(DPOTrainer):
             callbacks=callbacks,
             optimizers=optimizers,
             preprocess_logits_for_metrics=preprocess_logits_for_metrics,
+            max_prompt_length=max_prompt_length,
+            prompt_length=prompt_length
         )
 
         # Add tags for models that have been loaded with the correct transformers version
